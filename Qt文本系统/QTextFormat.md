@@ -163,3 +163,17 @@ enum PageBreakFlag {
 };
 Q_DECLARE_FLAGS(PageBreakFlags, PageBreakFlag)
 ```
+
+## 示例
+
+```cpp
+void test(QTextEdit *edit) {
+	QTextCursor cursor = edit->textCursor();
+	cursor.movePosition(QTextCursor::Start);
+
+	QTextBlockFormat blockFormat;
+	blockFormat.setProperty(QTextFormat::BackgroundBrush, QBrush(QColor(111, 1, 1)));
+
+	cursor.insertBlock(blockFormat);
+}
+```
