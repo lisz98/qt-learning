@@ -24,13 +24,15 @@
 
 1. 元素类型
 ```cpp
-class ElementType{
+enum ElementType{
     MoveToElement,//一个新的子路径
     LineToElement,//一个线
     CurveToElement,//一个曲线
     CurveToDataElement,//在CurveToElement元素中描述曲线所需的额外数据
 }
 ```
+
+
 
 ## 函数
 
@@ -81,6 +83,20 @@ class ElementType{
     1.  `void setElementPositionAt(int index,qreal x,qreal y)`
 18. 返回索引index处的元素
     1.  `QPainterPath::Element elementAt(int index) const`
+19. 交集、并集、相减、平移
+    1.  交集
+        1. `QPainterPath intersected(const QPainterPath &p) const`
+        2. `bool intersects(const QRectF &rectangle) const`
+        3. `bool intersects(const QPainterPath &p) const`
+     1. 并集
+        1. `QPainterPath united(const QPainterPath &p) const`
+     2. 相减
+        1. `QPainterPath subtracted(const QPainterPath &p) const`
+     3. 平移
+        1. `void translate(qreal dx, qreal dy)`
+        2. `void translate(const QPointF &offset)`
+        3. `QPainterPath translated(qreal dx, qreal dy) const`
+        4. `QPainterPath translated(const QPointF &offset) const`
 
 ## 示例
 
